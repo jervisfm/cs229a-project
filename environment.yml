@@ -19,3 +19,4 @@ dependencies:
     - tensorflow
     - h5py
     - tqdm
+    - tensorflow-datasets
