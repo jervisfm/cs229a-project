@@ -3,19 +3,19 @@ channels:
   - pytorch
   - defaults
 dependencies:
-  - matplotlib=3.0.2
-  - numpy=1.15.4
+  - matplotlib
+  - numpy
   - python=3.6
-  - scikit-learn=0.20.2
-  - pandas=0.24.0
-  - pillow=5.4.1
-  - cudatoolkit=9.0
-  - pytorch=1.0.1
-  - torchvision=0.2.1
-  - plotly=3.6.1
+  - scikit-learn
+  - pandas
+  - pillow
+  - cudatoolkit
+  - pytorch
+  - torchvision
+  - plotly
   - pip:
-    - bayesian-optimization==1.0.1
+    - bayesian-optimization
     - keras
     - tensorflow
-    - h5py==2.9.0
-    - tqdm==4.30.0
+    - h5py
+    - tqdm
