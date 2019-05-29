@@ -47,7 +47,7 @@ def get_confusion_matrix_filename():
 
 def get_experiment_report_filename():
     suffix_name = get_suffix_name()
-    filename = "{}{}".format("baselinev2_lr_results", suffix_name)
+    filename = "{}{}.txt".format("baseline_logistic_regression_results", suffix_name)
     return os.path.join(FLAGS.results_folder, filename)
 
 
@@ -98,22 +98,19 @@ def run():
     # Fix class names
     confusion = confusion_matrix(Y_dev, Y_dev_prediction)
 
-    print("Confusion matrix: ", confusion)
+    #print("Confusion matrix: ", confusion)
     pickle.dump(class_names, open(get_class_filename(), 'wb'))
     pickle.dump(confusion, open(get_confusion_matrix_filename(), 'wb'))
 
-    # TODO: plot confusion matrix
-    #confusion = confusion[:10, :10]
-    #class_names = class_names[:10]
+    #plot confusion matrix
     util.create_confusion_matrices(class_names, confusion, get_confusion_matrix_name())
 
 def main():
-    class_names = pickle.load(open(get_class_filename(), 'rb'))[:10]
-    confusion = pickle.load(open(get_confusion_matrix_filename(), 'rb'))[:10, :10]
+    class_names = pickle.load(open(get_class_filename(), 'rb'))
+    confusion = pickle.load(open(get_confusion_matrix_filename(), 'rb'))
     util.create_confusion_matrices(class_names, confusion, get_confusion_matrix_name())
 
 
 if __name__ == '__main__':
-
     run()
 
