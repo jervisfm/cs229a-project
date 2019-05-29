@@ -84,9 +84,9 @@ def run():
         1.0 * training_duration_secs / FLAGS.max_iter)
 
     class_names = util.get_label(Y_dev)
-    # TODO: fix target names
-    #classification_report_string = classification_report(Y_dev, Y_dev_prediction, target_names=class_names)
-    classification_report_string = classification_report(Y_dev, Y_dev_prediction)
+
+    classification_report_string = classification_report(Y_dev, Y_dev_prediction, target_names=class_names)
+
 
     experiment_result_string += "\nClassification report: {}".format(classification_report_string)
 
@@ -96,7 +96,6 @@ def run():
     util.write_contents_to_file(get_experiment_report_filename(), experiment_result_string)
 
     # Fix class names
-    #confusion = confusion_matrix(Y_dev, Y_dev_prediction, labels=class_names)
     confusion = confusion_matrix(Y_dev, Y_dev_prediction)
 
     print("Confusion matrix: ", confusion)
@@ -104,8 +103,8 @@ def run():
     pickle.dump(confusion, open(get_confusion_matrix_filename(), 'wb'))
 
     # TODO: plot confusion matrix
-    confusion = confusion[:10, :10]
-    class_names = class_names[:10]
+    #confusion = confusion[:10, :10]
+    #class_names = class_names[:10]
     util.create_confusion_matrices(class_names, confusion, get_confusion_matrix_name())
 
 def main():

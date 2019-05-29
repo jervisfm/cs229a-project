@@ -7,7 +7,7 @@ import tensorflow as tf
 import tensorflow_datasets as tfds
 
 from scipy import io as sio
-
+import util
 
 
 print("Loading matlab  data...")
@@ -31,6 +31,8 @@ y_train = y_train[0:val_start]
 
 print ("Intialize x shape:", X_train.shape)
 print("Initial y shape ", y_train[23])
+print('Y train labels', util.get_label(y_train))
+print('Min Y ', np.max(y_train))
 X_train_images = X_train.reshape( (X_train.shape[0], 28, 28), order='F')
 X_val_images = X_val.reshape( (X_val.shape[0], 28, 28), order='F')
 X_test_images = X_test.reshape( (X_test.shape[0], 28, 28), order='F')
