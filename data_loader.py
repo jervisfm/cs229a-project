@@ -29,8 +29,10 @@ X_train = X_train[0:val_start,:]
 y_train = y_train[0:val_start]
 
 
-print ("Intialize x shape:", X_train.shape)
-print("Initial y shape ", y_train[23])
+print ("Intialize x train shape:", X_train.shape)
+print ("Intialize x dev shape:", X_val.shape)
+print ("Intialize x test shape:", X_test.shape)
+
 print('Y train labels', util.get_label(y_train))
 X_train_images = X_train.reshape( (X_train.shape[0], 28, 28), order='F')
 X_val_images = X_val.reshape( (X_val.shape[0], 28, 28), order='F')
