@@ -9,15 +9,14 @@ dependencies:
   - scikit-learn
   - pandas
   - pillow
-  - cudatoolkit=9.0
+  - cudatoolkit
   - pytorch
   - torchvision
   - plotly
   - pip:
     - bayesian-optimization
     - keras
-    - tensorflow
-    - tensorflow-gpu
+    - tensorflow==1.12.2
     - h5py
     - tqdm
     - tensorflow-datasets
