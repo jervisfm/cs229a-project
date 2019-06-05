@@ -22,3 +22,20 @@ To pull in any updated dependencies, one can execute
 ```
 $ conda env update
 ```
+
+
+# Models
+
+## Baseline - Logisitc Regression
+This one attained ~65% dev set accuracy.
+
+## SVM
+Of the SVMs tested, polynomial kernel worked best and attained 73% accuracy on dev set.
+The other kernels performed poorly.
+
+```
+Classification report:               precision    recall  f1-score   support
+macro avg       0.75      0.73      0.73     20800
+weighted avg       0.75      0.73      0.73     20800
+accuracy                           0.73     20800
+```
