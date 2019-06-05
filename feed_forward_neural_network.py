@@ -42,6 +42,7 @@ flags.DEFINE_integer('model_version', 1,
 
 base_model_name = 'feed_forward_neural_network'
 model_filename =  base_model_name + '_model'
+model_result_filename =  base_model_name + '_results'
 model_weights_filename = base_model_name + '_model_weights'
 class_file_name = 'class_names_' + base_model_name
 confusion_file_name = 'confusion_matrix_' + base_model_name
@@ -140,7 +141,7 @@ def get_model_weights_filename():
 
 def get_experiment_report_filename():
     suffix_name = get_suffix_name()
-    filename = "{}{}".format("simple_cnn_keras_results", suffix_name)
+    filename = "{}{}".format(model_result_filename, suffix_name)
     return os.path.join(FLAGS.results_folder, filename)
 
 
