@@ -9,7 +9,7 @@ dependencies:
   - scikit-learn
   - pandas
   - pillow
-  - cudatoolkit
+  - cudatoolkit=9.0
   - pytorch
   - torchvision
   - plotly
