@@ -126,7 +126,7 @@ def get_training_plot_filename():
     return os.path.join(directory, "{}_training_plot".format(get_model_name_only()))
 
 
-def get_tensorboard_callback(frequency=2):
+def get_tensorboard_callback(frequency=20):
     logdir = "./" + get_tensorboard_directory()
     print("Tensorboard logdir: ", logdir)
     return keras.callbacks.TensorBoard(log_dir=logdir, histogram_freq=frequency,
