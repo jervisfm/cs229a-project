@@ -17,6 +17,7 @@ dependencies:
     - bayesian-optimization
     - keras
     - tensorflow
+    - tensorflow-gpu
     - h5py
     - tqdm
     - tensorflow-datasets
