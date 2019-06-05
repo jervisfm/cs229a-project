@@ -6,7 +6,7 @@ dependencies:
   - asn1crypto=0.24.0=py36_0
   - attrs=19.1.0=py36_1
   - blas=1.0=mkl
-  - ca-certificates=2019.1.23=0
+  - ca-certificates=2019.5.15=0
   - certifi=2019.3.9=py36_0
   - cffi=1.12.3=py36hb5b8e2f_0
   - chardet=3.0.4=py36_1
@@ -31,17 +31,18 @@ dependencies:
   - libpng=1.6.37=ha441bb4_0
   - libtiff=4.0.10=hcb84e12_2
   - llvm-openmp=4.0.1=hcfea43d_1
-  - matplotlib=3.0.3=py36h54f8f79_0
-  - mkl=2019.3=199
+  - matplotlib=3.1.0=py36h54f8f79_0
+  - mkl=2019.4=233
+  - mkl-service=2.0.2=py36h1de35cc_0
   - mkl_fft=1.0.12=py36h5e564d8_0
   - mkl_random=1.0.2=py36h27c97d8_0
   - nbformat=4.4.0=py36h827af21_0
   - ncurses=6.1=h0a44026_1
   - ninja=1.9.0=py36h04f5b5a_0
-  - numpy=1.16.3=py36hacdab7b_0
-  - numpy-base=1.16.3=py36h6575580_0
+  - numpy=1.16.4=py36hacdab7b_0
+  - numpy-base=1.16.4=py36h6575580_0
   - olefile=0.46=py36_0
-  - openssl=1.1.1b=h1de35cc_1
+  - openssl=1.1.1c=h1de35cc_1
   - pandas=0.24.2=py36h0a44026_0
   - pillow=6.0.0=py36hb68e598_0
   - pip=19.1.1=py36_0
@@ -57,7 +58,7 @@ dependencies:
   - readline=7.0=h1de35cc_5
   - requests=2.21.0=py36_0
   - retrying=1.3.3=py36_2
-  - scikit-learn=0.21.1=py36h27c97d8_0
+  - scikit-learn=0.21.2=py36h27c97d8_0
   - scipy=1.2.1=py36h1410ff5_0
   - setuptools=41.0.1=py36_0
   - six=1.12.0=py36_0
@@ -95,6 +96,7 @@ dependencies:
     - tensorflow==1.13.1
     - tensorflow-datasets==1.0.2
     - tensorflow-estimator==1.13.0
+    - tensorflow-gpu==1.1.0
     - tensorflow-metadata==0.13.0
     - termcolor==1.1.0
     - torch==1.1.0
