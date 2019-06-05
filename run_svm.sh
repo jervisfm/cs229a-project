@@ -23,7 +23,3 @@ python svm.py --max_iter $NUM_ITER --kernel "sigmoid"  --experiment_name "kernel
 echo "Done"
 
 
-echo ">>> Training SVM precomputed ..."
-python svm.py --max_iter $NUM_ITER --kernel "precomputed"  --experiment_name "kernel=precomputed_iter=${NUM_ITER}"
-echo "Done"
-
