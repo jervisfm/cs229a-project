@@ -2,7 +2,7 @@
 
 set -x
 
-MAX_ITER=100
+MAX_ITER=10
 echo "Start Transfer Learning Neural Network training ..."
 
 echo "Transfer learning with MobileNet"
