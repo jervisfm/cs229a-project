@@ -232,7 +232,7 @@ def main():
     scores = nn_model.evaluate(X_dev, dummy_y_dev, verbose=0)
     experiment_result_string += "Feedforward NN model DEV %s: %.2f%%" % (nn_model.metrics_names[1], scores[1] * 100)
 
-    classification_report_string = classification_report(dummy_y_dev, dummy_y_pred_dev_class, target_names=class_names)
+    classification_report_string = classification_report(dummy_y_dev_confusion_matrix, dummy_y_pred_dev_class, target_names=class_names)
     experiment_result_string += "\nClassification report: {}".format(classification_report_string)
 
     print(experiment_result_string)
