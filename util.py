@@ -36,6 +36,9 @@ label_mapping = {
     26: 'Z',
 }
 
+def convert_emnist_label_to_letter(numeric_label):
+    return label_mapping[numeric_label]
+
 def get_label(Y):
 
     labels = label_mapping
