@@ -17,6 +17,7 @@ from keras.layers import Conv2D
 from keras.layers import MaxPooling2D
 from keras.layers import Flatten
 from keras.layers import Dense
+from keras import regularizers
 from training_plot import TrainingPlot
 
 from sklearn.model_selection import cross_val_score
@@ -35,6 +36,7 @@ FLAGS = flags.FLAGS
 
 flags.DEFINE_integer('max_iter', 100, 'Number of steps/epochs to run training.')
 flags.DEFINE_integer('batch_size', 500, 'Number of examples to use in a batch for stochastic gradient descent.')
+flags.DEFINE_float('l2_reg', 0, 'Amount of L2 regularization to apply to model. Defaults to 0')
 flags.DEFINE_string('results_folder', 'results/', 'Folder to store result outputs from run.')
 flags.DEFINE_string('experiment_name', None, 'Name for the experiment. Useful to tagging files')
 flags.DEFINE_integer('model_version', 1,
@@ -165,23 +167,23 @@ def decode_values(encoder, one_hot_y):
     return encoder.inverse_transform(one_hot_y)
 
 
-def model():
+def model(l2_reg=0):
     # Based on code snippets from https://becominghuman.ai/building-an-image-classifier-using-deep-learning-in-python-totally-from-a-beginners-perspective-be8dbaf22dd8
 
     # Initialising the CNN
     classifier = Sequential()
     # Step 1 - Convolution
-    classifier.add(Conv2D(14, (3, 3), input_shape=(28, 28, 1), activation='relu'))
+    classifier.add(Conv2D(14, (3, 3), input_shape=(28, 28, 1), activation='relu', kernel_regularizer=regularizers.l2(l2_reg)))
     # Step 2 - Pooling
     classifier.add(MaxPooling2D(pool_size=(2, 2)))
     # Adding a second convolution layer
-    classifier.add(Conv2D(14, (3, 3), activation='relu'))
+    classifier.add(Conv2D(14, (3, 3), activation='relu',  kernel_regularizer=regularizers.l2(l2_reg)))
     classifier.add(MaxPooling2D(pool_size=(2, 2)))
     # Step 3 - Flattening
     classifier.add(Flatten())
     # Step 4 - Full connection
-    classifier.add(Dense(units=128, activation='relu'))
-    classifier.add(Dense(get_num_classes(), activation='softmax'))
+    classifier.add(Dense(units=128, activation='relu',  kernel_regularizer=regularizers.l2(l2_reg)))
+    classifier.add(Dense(get_num_classes(), activation='softmax',  kernel_regularizer=regularizers.l2(l2_reg)))
     # Compiling the CNN
     classifier.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
     return classifier
@@ -227,7 +229,7 @@ def main():
     print("Done preprocessing dataset")
 
     # build the model
-    nn_model = model()
+    nn_model = model(l2_reg=FLAGS.l2_reg)
 
     plot_losses = TrainingPlot(get_training_plot_filename())
     nn_model.fit(X_train, dummy_y_train, epochs=FLAGS.max_iter, batch_size=FLAGS.batch_size, verbose=1,
