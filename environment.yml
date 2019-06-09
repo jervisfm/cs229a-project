@@ -16,6 +16,8 @@ dependencies:
   - pip:
     - bayesian-optimization
     - keras
+    - ann_visualizer
+    - graphviz
     - tensorflow==1.12.2
     - h5py
     - tqdm
