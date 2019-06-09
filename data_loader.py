@@ -78,6 +78,7 @@ if __name__ == '__main__':
     print('Y_dev shape:', y_val.shape)
     print('X_test shape:', X_test.shape)
     print('Y_test shape:', y_test.shape)
+    print('Sample input x', X_train[0])
 
 
 print('val start', val_start)
