@@ -5,6 +5,9 @@ Implements a simple baseline svm classifier for the task of handwritten letter r
 import time
 import argparse
 import os
+
+from sklearn.preprocessing import StandardScaler
+
 import data_loader
 import util
 
@@ -41,8 +44,16 @@ def main():
     X_train, Y_train = data_loader.get_train(as_vectors=True)
     X_dev, Y_dev = data_loader.get_dev(as_vectors=True)
 
+    print('Scaling and normalizing training data')
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    print('Normalizing dev data from training transformation')
+    X_dev = scaler.transform(X_dev)
+    print('Data normalization complete')
+
     start_time_secs = time.time()
     print("Starting SVM Model training ...", X_train.shape, Y_train.shape)
+
     classifier = SVC(gamma='auto', verbose=1, kernel=FLAGS.kernel, max_iter=FLAGS.max_iter).fit(X_train, Y_train)
 
     print("Training done.")
