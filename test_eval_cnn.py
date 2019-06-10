@@ -250,11 +250,12 @@ def main():
     model_json_content = open(TEST_EVAL_MODEL, 'r').read()
 
     loaded_model = model_from_json(model_json_content)
-    loaded_model = loaded_model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
     # load weights into new model
     loaded_model.load_weights(TEST_EVAL_MODEL_WEIGHTS)
     print("Loaded model from disk")
 
+    
+    loaded_model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
     nn_model = loaded_model
 
     experiment_result_string = "-------------------\n"
