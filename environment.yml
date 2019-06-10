@@ -16,6 +16,7 @@ dependencies:
   - pip:
     - bayesian-optimization
     - keras
+    - flask
     - ann_visualizer
     - graphviz
     - tensorflow==1.12.2
